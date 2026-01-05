@@ -1,0 +1,568 @@
+/* --- Reset & Variabel Global --- */
+:root {
+    --primary-blue: #0949C3; /* Warna biru utama dari gambar */
+    --accent-red: #d93025;   /* Warna merah untuk garis */
+    --dark-text: #222222;
+    --light-text: #ffffff;
+    --body-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--dark-text);
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header & Navigasi --- */
+header {
+   background-color: var(--body-bg); 
+    color: var(--dark-text);         
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    /* --- BARIS TAMBAHAN UNTUK STICKY --- */
+    position: sticky; /* Properti utama untuk membuatnya "lengket" */
+    top: 0;           /* Menentukan posisi "lengket" di paling atas */
+    width: 100%;      /* Memastikan lebarnya tetap penuh saat scroll */
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: initial; 
+    font-weight: initial;
+    line-height: initial;
+    text-align: initial;
+}
+
+/*--- header & navigasi---*/
+
+.logo img {
+    width: 75px; /* <-- Ganti angka ini untuk mengatur lebar logo */
+    height: auto; /* Biarkan 'auto' agar gambar tidak penyok */
+    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+}
+
+.logo span {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-left: 40px;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 0;
+    letter-spacing: 1px;
+}
+
+nav a.active {
+    border-bottom: 2px solid var(--dark-text);
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    position: relative;
+    color: var(--primary-blue);
+}
+
+.sidebar-text {
+    writing-mode: vertical-rl; /* Membuat teks vertikal */
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+.left-text {
+    transform: rotate(180deg); /* Memutar teks dari bawah ke atas */
+}
+
+.right-text {
+    /* Teks dari atas ke bawah (default writing-mode) */
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-content h4 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 10px 0 20px;
+    line-height: 1.1;
+}
+
+/* garis merah */
+.divider {
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/*::before: Ini adalah "pseudo-element" CSS yang berarti "sisipkan sesuatu sebelum konten" (sebelum teks "PART OF US").
+::after: Ini berarti "sisipkan sesuatu sesudah konten" (sesudah teks "PART OF US").*/
+
+.divider::before,
+.divider::after {
+    content: '';/* Ini wajib ada untuk memunculkan elemennya */
+    width: 60px;/* Lebar garis */
+    height: 2px;/* Tebal garis */
+    background-color: var(--accent-red);/* Warna merah */
+    margin: 0 15px;/* Jarak antara garis dan teks */
+}
+
+.btn-book {
+    border: 2px solid var(--primary-blue);
+    padding: 10px 24px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+}
+
+/* --- 
+Welcome Section
+ --- */
+.welcome {
+    padding: 60px 0 80px;
+}
+
+.welcome-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.welcome-image {
+    flex: 1;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Placeholder style */
+    background-color: #eee;
+    min-height: 300px;
+    border: 1px dashed #ccc;
+}
+
+.welcome-content {
+    flex: 1;
+    padding-top: 20px;
+}
+
+.welcome-content h2 {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--primary-blue);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.welcome-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+    color: #555;
+}
+
+.hotline {
+    display: flex;
+    align-items: center;
+}
+
+.hotline-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+.hotline-number {
+    display: flex;
+    flex-direction: column;
+}
+
+.hotline-number span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.hotline-number strong {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/* ---
+   Halaman Menu
+   --- */
+
+.menu-page {
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+/* --- Filter Tabs ------- */
+.menu-filters {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.filter-tab {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 20px;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.filter-tab:hover {
+    background-color: #f0f5ff;
+}
+
+.filter-tab.active {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+}
+
+
+/* --- 
+Menu Section Layout
+ --- */
+.menu-section {
+    display: none; /* Sembunyikan semua section by default */
+}
+
+.menu-section.active {
+    display: block; /* Tampilkan HANYA section yang aktif */
+}
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header .pill {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--dark-text);
+    margin-top: 10px;
+}
+
+.menu-container {
+    display: grid;
+    /* Kolom kiri 1 bagian, kolom kanan 2 bagian */
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+/* --- Kolom Kiri (Price List) --- */
+.menu-pricelist .pricelist-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    
+    /* Placeholder style */
+    background-color: #eee;
+    min-height: 200px;
+    border: 1px dashed #ccc;
+}
+
+.menu-pricelist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-pricelist li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-text);
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-pricelist .price {
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+/* --- Kolom Kanan (Grid) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.menu-item-card {
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.menu-item-card .img-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.menu-item-card .img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+    /* Placeholder style */
+    background-color: #f9f9f9;
+    min-height: 180px;
+}
+
+.menu-item-card .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-red);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.menu-item-card .stars {
+    color: #f39c12; /* Warna bintang oranye */
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.menu-item-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.menu-item-card .price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #555;
+}
+
+/* ---
+   Halaman Kontak
+   --- */
+
+/* Memberi latar belakang abu-abu muda ke <body> */
+body.contact-page-bg {
+    background-color: #f0f2f5; 
+}
+
+/* Header Banner Biru */
+.contact-header {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.contact-title h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.contact-title p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* Navigasi di dalam banner kontak */
+.contact-nav {
+    margin-top: 40px;
+}
+
+.contact-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+.contact-nav a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+/* Garis bawah untuk link 'active' */
+.contact-nav a.active {
+    border-bottom: 2px solid var(--light-text);
+}
+
+/* Konten Utama (Kartu Putih) */
+.contact-main {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-card {
+    background-color: var(--light-text);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    max-width: 550px; /* Atur lebar kartu */
+    width: 100%;
+}
+
+.contact-card h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+}
+
+.contact-card .card-subtitle {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Styling untuk setiap item info (ikon + teks) */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+
+.info-icon {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background-color: #e6f0ff; /* Biru muda */
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-right: 20px;
+}
+
+.info-icon i {
+    color: var(--primary-blue);
+    font-size: 18px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text strong {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 5px;
+}
+
+.info-text span {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.info-text .blue-link {
+    font-size: 15px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
